@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Физиотерапия — информация для пациентов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: #f4f9fb;
+  }
+  header {
+    background: linear-gradient(135deg, #2196f3, #00bcd4);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  header h1 { font-size: 2.2em; margin-bottom: 10px; }
+  header p { font-size: 1.1em; opacity: 0.95; }
+  .author {
+    background: rgba(255,255,255,0.15);
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95em;
+  }
+  nav {
+    background: #1976d2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  nav a {
+    color: white;
+    padding: 14px 22px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  nav a:hover, nav a.active { background: #0d47a1; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+  section { margin-bottom: 40px; }
+  h2 {
+    color: #1976d2;
+    border-bottom: 3px solid #00bcd4;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-size: 1.7em;
+  }
+  h3 { color: #2196f3; margin: 18px 0 10px; }
+  p { margin-bottom: 12px; }
+  ul { margin: 10px 0 15px 25px; }
+  li { margin-bottom: 6px; }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    margin-bottom: 18px;
+  }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  /* Аккордеон */
+  .accordion {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .accordion-header {
+    background: #e3f2fd;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .accordion-header:hover { background: #bbdefb; }
+  .accordion-header::after {
+    content: '▼';
+    font-size: 0.8em;
+    transition: transform 0.3s;
+  }
+  .accordion.open .accordion-header::after { transform: rotate(180deg); }
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .accordion.open .accordion-body { max-height: 2000px; }
+  .accordion-content {
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+  .accordion-content img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .tag {
+    display: inline-block;
+    background: #00bcd4;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin: 3px 4px 3px 0;
+  }
+  footer {
+    background: #1976d2;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+  footer p { margin: 5px 0; opacity: 0.9; }
+  .info-box {
+    background: #fff8e1;
+    border-left: 5px solid #ffc107;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 15px 0;
+  }
+  .info-box strong { color: #e65100; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>💧 Физиотерапия — просто о важном</h1>
+  <p>Информация для пациентов: зачем нужна, какой эффект и какие методы применяются</p>
+  <div class="author">Автор сайта: Кубинский Руслан, студент 1 курса<br>
+  Архангельского медицинского колледжа, направление «Лечебное дело»</div>
+</header>
+
+<nav>
+  <a href="#about">О физиотерапии</a>
+  <a href="#effects">Лечебный эффект</a>
+  <a href="#methods">Методы</a>
+  <a href="#diseases">При заболеваниях</a>
+</nav>
+
+<div class="container">
+
+  <section id="about">
+    <h2>Что такое физиотерапия и зачем она нужна?</h2>
+    <p><strong>Физиотерапия</strong> — это область медицины, в которой для лечения и реабилитации используются природные и искусственно созданные физические факторы: токи, магнитные поля, ультразвук, свет, тепло, холод, вода, массаж, лечебная физкультура.</p>
+    <p>Физиотерапия <strong>не заменяет</strong> основное лечение, а <strong>дополняет его</strong>. Она помогает:</p>
+    <ul>
+      <li>уменьшить боль и воспаление;</li>
+      <li>ускорить заживление и восстановление тканей;</li>
+      <li>улучшить кровообращение и обмен веществ;</li>
+      <li>укрепить иммунитет;</li>
+      <li>сократить приём лекарств;</li>
+      <li>быстрее вернуться к обычной жизни после болезни или операции.</li>
+    </ul>
+    <div class="info-box">
+      <strong>Важно!</strong> Физиотерапия назначается только врачом с учётом диагноза, стадии болезни и противопоказаний. Самолечение может навредить.
+    </div>
+  </section>
+
+  <section id="effects">
+    <h2>Какой лечебный эффект даёт физиотерапия?</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600" alt="Обезболивание">
+        <h3>Обезболивающий</h3>
+        <p>Блокирует проведение болевых импульсов, снимает мышечное напряжение, уменьшает отёк.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600" alt="Противовоспалительный">
+        <h3>Противовоспалительный</h3>
+        <p>Уменьшает воспаление, ускоряет рассасывание инфильтратов, стимулирует регенерацию.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600" alt="Сосудорасширяющий">
+        <h3>Сосудорасширяющий</h3>
+        <p>Улучшает кровообращение и лимфоток, питание тканей, выведение продуктов обмена.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600" alt="Иммуностимулирующий">
+        <h3>Иммуностимулирующий</h3>
+        <p>Активирует защитные силы организма, повышает устойчивость к инфекциям.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600" alt="Тонизирующий">
+        <h3>Тонизирующий и седативный</h3>
+        <p>В зависимости от метода бодрит и повышает работоспособность или успокаивает нервную систему.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600" alt="Восстановление">
+        <h3>Восстановительный</h3>
+        <p>Ускоряет реабилитацию после травм, операций, болезней, улучшает подвижность.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="methods">
+    <h2>Методы физиотерапии — подробно о каждом</h2>
+    <p>Нажми на название метода, чтобы раскрыть подробную информацию 👇</p>
+
+    <div class="accordion">
+      <div class="accordion-header">⚡ Электротерапия (гальванизация, электрофорез, СМТ, ДДТ)</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800" alt="Электротерапия">
+        <p><strong>Что это:</strong> воздействие на организм постоянным или импульсным электрическим током.</p>
+        <p><strong>Как действует:</strong> ток раздражает нервные окончания, улучшает кровообращение, снимает боль и воспаление. При <em>электрофорезе</em> с помощью тока в ткани вводятся лекарства — они действуют долго и без таблеток.</p>
+        <p><strong>Кому помогает:</strong></p>
+        <ul>
+          <li>заболевания нервной системы (радикулит, неврит, остеохондроз);</li>
+          <li>травмы и болезни суставов, мышц;</li>
+          <li>гипертония, нарушения обмена веществ;</li>
+          <li>хронические воспалительные процессы.</li>
+        </ul>
+        <p><span class="tag">10–15 процедур</span> <span class="tag">Безболезненно</span> <span class="tag">15–20 минут</span></p>
+        <p><strong>Противопоказания:</strong> эпилепсия, кардиостимулятор, злокачественные опухоли, острые инфекции, беременность (по зонам), аллергия на лекарство при электрофорезе.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🧲 Магнитотерапия</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800" alt="Магнитотерапия">
+        <p><strong>Что это:</strong> лечение переменным или постоянным магнитным полем.</p>
+        <p><strong>Как действует:</strong> магнитное поле проникает глубоко в ткани, улучшает микроциркуляцию, снимает отёк и боль, ускоряет заживление, снижает тонус сосудов.</p>
+        <p><strong>Кому помогает:</strong> остеохондроз, артрит, артроз, гипертония, последствия травм и операций, трофические язвы, нарушения сна.</p>
+        <p><span class="tag">10–20 процедур</span> <span class="tag">Безболезненно</span> <span class="tag">Есть дома в приборах</span></p>
+        <p><strong>Противопоказания:</strong> кардиостимулятор, беременность, эпилепсия, злокачественные опухоли, склонность к кровотечениям.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🔊 Ультразвуковая терапия</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800" alt="Ультразвук">
+        <p><strong>Что это:</strong> воздействие механическими колебаниями высокой частоты (ультразвуком).</p>
+        <p><strong>Как действует:</strong> микромассаж тканей на клеточном уровне, разогрев, ускорение обмена веществ, рассасывание рубцов и спаек, противовоспалительный и обезболивающий эффект.</p>
+        <p><strong>Кому помогает:</strong> заболевания суставов и позвоночника, рубцы и спайки, ЛОР-болезни, гинекологические и урологические воспаления, травмы.</p>
+        <p><span class="tag">8–12 процедур</span> <span class="tag">Ощущение тепла</span> <span class="tag">5–10 минут</span></p>
+        <p><strong>Противопоказания:</strong> злокачественные опухоли, острые инфекции, беременность (живот), сердечные заболевания в стадии декомпенсации, тромбофлебит.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">💡 Светолечение (лазер, УФО, СВЧ)</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800" alt="Светолечение">
+        <p><strong>Что это:</strong> использование инфракрасного, видимого, ультрафиолетового и лазерного излучения.</p>
+        <p><strong>Как действует:</strong></p>
+        <ul>
+          <li><em>Инфракрасное</em> — прогревает ткани, снимает боль;</li>
+          <li><em>УФО</em> — противовоспалительное, бактерицидное, стимулирует витамин D и иммунитет;</li>
+          <li><em>Лазер</em> — ускоряет регенерацию, снимает боль и воспаление, часто точечно.</li>
+        </ul>
+        <p><strong>Кому помогает:</strong> кожные болезни, раны, ожоги, ЛОР-заболевания, неврологические боли, болезни суставов, стоматология.</p>
+        <p><span class="tag">5–15 процедур</span> <span class="tag">Малые дозы УФО</span></p>
+        <p><strong>Противопоказания:</strong> фотодерматиты, злокачественные опухоли, активный туберкулёз, эпилепсия, приём фотосенсибилизирующих препаратов.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">❄️🔥 Теплолечение и криотерапия</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800" alt="Тепло и холод">
+        <p><strong>Что это:</strong> лечение теплом (парафин, озокерит, грязи) и холодом (криотерапия, ледяные аппликации).</p>
+        <p><strong>Как действует:</strong> тепло расслабляет мышцы, улучшает кровоток, ускоряет заживление; холод снимает острое воспаление, отёк и боль, сужает сосуды.</p>
+        <p><strong>Кому помогает:</strong> тепло — при артритах, артрозах, радикулите, спазмах, рубцах; холод — при острых травмах, ушибах, после операций, при мигрени.</p>
+        <p><span class="tag">10–20 процедур</span> <span class="tag">Приятно/бодрит</span></p>
+        <p><strong>Противопоказания:</strong> тепло — при остром воспалении, кровотечениях, опухолях; холод — при непереносимости холода, синдроме Рейно, нарушениях чувствительности.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">💧 Водолечение (гидротерапия, души, ванны)</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800" alt="Водолечение">
+        <p><strong>Что это:</strong> использование воды (пресной, минеральной, морской) в виде душей, ванн, обливаний, компрессов.</p>
+        <p><strong>Как действует:</strong> сочетает температуру и механическое воздействие; улучшает кровообращение, снимает напряжение, закаливает, успокаивает или тонизирует.</p>
+        <p><strong>Кому помогает:</strong> хронические боли, неврастения, бессонница, гипертония, заболевания кожи, восстановление после болезней.</p>
+        <p><span class="tag">10–20 процедур</span> <span class="tag">Курсами</span></p>
+        <p><strong>Противопоказания:</strong> острые инфекции, кожные заболевания в обострении, тромбофлебит, сердечная недостаточность, злокачественные опухоли.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🫁 Ингаляционная терапия</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800" alt="Ингаляции">
+        <p><strong>Что это:</strong> вдыхание лекарственных веществ или аэрозолей через дыхательные пути (небулайзер, ингалятор).</p>
+        <p><strong>Как действует:</strong> лекарство сразу попадает в бронхи и лёгкие, увлажняет слизистую, снимает спазм и воспаление, разжижает мокроту.</p>
+        <p><strong>Кому помогает:</strong> бронхит, бронхиальная астма, ОРВИ, ларингит, трахеит, пневмония в восстановлении, муковисцидоз.</p>
+        <p><span class="tag">5–10 процедур</span> <span class="tag">Домашний метод</span></p>
+        <p><strong>Противопоказания:</strong> непереносимость препарата, лёгочные кровотечения, тяжёлая дыхательная недостаточность, абсцесс лёгкого.</p>
+      </div></div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header">🏃 Лечебная физкультура и массаж</div>
+      <div class="accordion-body"><div class="accordion-content">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800" alt="ЛФК и массаж">
+        <p><strong>Что это:</strong> специально подобранные физические упражнения и ручное механическое воздействие на ткани.</p>
+        <p><strong>Как действует:</strong> тренирует мышцы и суставы, восстанавливает подвижность, улучшает кровоток, снимает мышечный спазм, нормализует тонус и осанку.</p>
+        <p><strong>Кому помогает:</strong> после травм и операций, при остеохондрозе, сколиозе, артрите, нарушениях осанки, реабилитации после инсульта, при стрессах.</p>
+        <p><span class="tag">Ежедневно/курсами</span> <span class="tag">Под контролем</span></p>
+        <p><strong>Противопоказания:</strong> острые боли, кровотечения, злокачественные опухоли, тяжёлая сердечная недостаточность, тромбозы.</p>
+      </div></div>
+    </div>
+
+  </section>
+
+  <section id="diseases">
+    <h2>Какие физиотерапевтические методы применяют при распространённых заболеваниях</h2>
+
+    <div class="card">
+      <h3>🦴 Остеохондроз, радикулит, боли в спине</h3>
+      <ul>
+        <li>электрофорез с обезболивающими</li>
+        <li>магнитотерапия</li>
+        <li>ультразвук</li>
+        <li>ЛФК и массаж</li>
+        <li>теплолечение (парафин, озокерит)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🫁 Бронхит, бронхиальная астма, ОРВИ</h3>
+      <ul>
+        <li>ингаляционная терапия (небулайзер)</li>
+        <li>УФО (в период восстановления)</li>
+        <li>магнитотерапия на грудную клетку</li>
+        <li>дыхательная гимнастика</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🦵 Артрит, артроз, боли в суставах</h3>
+      <ul>
+        <li>магнитотерапия</li>
+        <li>ультразвук с лекарствами</li>
+        <li>электрофорез</li>
+        <li>теплолечение</li>
+        <li>ЛФК для суставов</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Неврологические болезни (неврит, инсульт, параличи)</h3>
+      <ul>
+        <li>электростимуляция мышц</li>
+        <li>магнитотерапия</li>
+        <li>лазеротерапия</li>
+        <li>ЛФК и массаж</li>
+        <li>водолечение</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🤧 ЛОР-заболевания (гайморит, тонзиллит, отит)</h3>
+      <ul>
+        <li>УФО</li>
+        <li>ингаляции</li>
+        <li>ультразвук</li>
+        <li>магнитотерапия</li>
+        <li>лазеротерапия</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🩹 Травмы, раны, восстановление после операций</h3>
+      <ul>
+        <li>криотерапия (первые дни)</li>
+        <li>магнитотерапия</li>
+        <li>лазеротерапия</li>
+        <li>УФО</li>
+        <li>ЛФК</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <strong>Помни!</strong> Любой метод физиотерапии назначает врач после осмотра и обследования. Если у тебя есть хронические болезни, аллергии или кардиостимулятор — обязательно сообщи об этом специалисту.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p><strong>Сайт создан Кубинским Русланом</strong></p>
+  <p>Студент 1 курса Архангельского медицинского колледжа, направление «Лечебное дело»</p>
+  <p>Материал носит информационный характер и не заменяет консультацию врача</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const acc = header.parentElement;
+      document.querySelectorAll('.accordion').forEach(a => {
+        if (a !== acc) a.classList.remove('open');
+      });
+      acc.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
